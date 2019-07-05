@@ -1,0 +1,10 @@
+{
+  "name": "stencil-demo",
+  "profile": "up-user",
+  "regions": [
+    "us-east-1"
+  ],
+  "proxy": {
+    "command": "./caddy -conf Caddyfile"
+  }
+}
