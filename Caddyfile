@@ -1,16 +1,18 @@
-localhost:{$PORT}
-gzip
+:{$PORT}
 tls off
 root html
 errors visible
+
 proxy /json/api/ https://www.metaweather.com/api/ {
     header_upstream  -Accept-Encoding
     without /json/api/
 }
+
+proxy /json/static/ https://www.metaweather.com/ {
+    without /json/
+}
+
 stencil /json/ {
     ext .json
     template    json/template.html
-}
-proxy /json/static/ https://www.metaweather.com/ {
-    without /json/
 }
